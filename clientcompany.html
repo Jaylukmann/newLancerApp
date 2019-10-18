@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Create Invoice New User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+        html,
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            overflow-y: visible;
+            overflow-x: visible;
+            position: relative;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: 0;
+            left: 14rem;
+            width: calc(100% - 14rem);
+            z-index: 998;
+            backface-visibility: hidden;
+            margin-top: 1px;
+        }
+        main {
+           margin-top: 4rem;
+           margin-left: 14rem;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+        }
+        .main-heading {
+            margin-left: 3rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .hamburger {
+            display: none;
+        }
+        .header-lists {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem !important;
+            margin-left: 4rem !important;
+            position: relative;
+            margin: 0;
+        }
+        .header-lists li {
+            display: inline-block;
+            
+           
+        }
+        #page-content-wrapper {
+        min-width: 100vw;
+        min-width: 0;
+        width: 100%;
+        }
+        #prs{
+            padding-left: 4em;
+        }
+        
+         #nav {
+           position: absolute;
+           left: 0%;
+           right: 0%;
+           top: 0%;
+           bottom: 0%;
+           background: #FFFFFF;
+           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+           border-left: 15%;
+           }
+        #clt{
+            font-size: 17px;
+            margin-left: 5%;
+            font-weight: bold;
+        }
+        #crs{
+            margin-left: 5%;
+            margin-top: 2%;
+            width: 25%;
+            padding: 0.5em;
+            margin-bottom: 3%;
+            border-top:0px;
+            border-bottom: 0px;
+            height: 16px;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+   
+        }
+
+        #btn{
+            width: 10%;
+            padding: 0.5em;
+            background-color: #0ABAB5;
+            color: white;
+            border-top: 0px solid #0ABAB5;
+            border-bottom: 0px solid #0ABAB5;
+            border-left: 6px solid #0ABAB5;
+            border-right: 2px #0ABAB5;
+            height: 18px;
+            font-size: 15px;
+            padding-left: 8px;
+            margin-left: 10px;
+        }
+        #dtl{
+            background-color: white;
+            width: 90%;
+            height: 40px;
+            margin-top: 1%;
+            margin-left:5%;
+            border-top:1px solid grey;
+            border-left:1px solid grey;
+            border-right:1px solid grey;
+            border-bottom:1px solid grey;
+            font-size: 12px;
+            background-position-x: right;
+            border: 1px solid #C4C4C4;
+            padding-top: 0.8em;
+        }
+         
+         #act{
+            padding: 10px 10px;
+            width: 38%;
+	        background-color:rgba(23, 150, 21, 0.1);
+            color: #179615;
+	        font-weight: bold;
+	         text-align: center;
+             } 
+
+        #cmpt{
+            width: 38%;
+	        padding: 10px 10px;
+	        background: rgba(0, 159, 255, 0.1);
+	        color: darkblue;
+	        font-weight: bold;
+            text-align: center;
+        }
+      #pend{
+            width: 38%;
+	        background: rgb(240, 183, 183);
+	        border-radius: 4px;
+            padding: 10px 10px;
+	        color: #F77A06;
+	        font-weight: bold;
+            text-align: center;
+    }
+    a.dropdown-item:hover{
+        border-bottom: 1px solid #fff;
+        transition: 1s;
+        }
+
+
+        .profile-photo {
+            border-radius: 50%;
+        }
+        .support-icon {
+            height: 30px;
+            width: auto;
+        }
+        .notification-icon {
+            height: 24.4px;
+            width: auto;
+        }
+        .profile-photo {
+            height: 40px;
+            width: auto;
+        }
+        .support-list {
+            display: inline-grid !important;
+            grid-template-columns: 1fr 2fr;
+            grid-column-gap: 0.4rem;
+            align-items: center;
+        }
+       
+        .second-heading {
+            width: 50%;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 5rem;
+        }
+        .main-form {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #091429;
+            height: 100vh !important;
+            z-index: 999;
+            width: 14rem;
+            color: white;
+            padding-top: 3rem;
+            padding-left: 1rem;
+        }
+        .sidebar a:hover {
+            color: #0ABAB5;;
+            }
+        
+        .sidebar ul li {
+            padding: 1rem 0rem;
+            text-align: left;
+            list-style: none;
+            margin-left: 2rem;
+            margin-bottom: 10%;
+
+        }
+        .sidebar ul li a img {
+            height: 1.5rem;
+            padding-right: 1rem;
+        }
+        .sidebar ul li a i {
+            padding-left: 8px;
+        }
+        .logo {
+            
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .create-invoice {
+            width: 13rem;
+            height: 3.5rem;
+            background: #0ABAB5;
+            color: white;
+            margin: none;
+            font-size: 16px;
+            text-align: center;
+            margin-left: 40px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .content h3 {
+            font-family: Ubuntu;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 32px;
+            color: #262626;
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+            color: #091429;
+            margin-left: 40px;
+        }
+        .firstcolumn{
+        margin-left:5em;
+        display:flex;
+    }
+    .first{
+       
+        flex:1;
+    }
+    .secondcolumn{
+        line-height: 50px;
+        border: 1px solid grey;
+        display:flex;
+    }
+    .second{
+        padding-left: 5em;
+        flex:1;
+    }
+    .thirdcolumn{
+        line-height: 50px;
+        border: 1px solid grey;
+        display:flex;
+    }
+    .third{
+        padding-left: 5em;
+        flex:1;
+    }
+     .fourthcolumn{
+        line-height: 50px;
+        border: 1px solid grey;
+        display:flex;
+    }
+    .fourth{
+        padding-left: 5em;
+        flex:1;
+    }
+    .fifthcolumn{
+        line-height: 50px;
+        border: 1px solid grey;   
+        display:flex;
+    }
+    .fifth{
+        padding-left: 5em;
+        flex:1;
+    }
+    .sixthcolumn{
+        line-height: 50px;
+        border: 1px solid grey;
+        display:flex;
+    }
+    .sixth{
+        padding-left: 5em;
+        flex:1;
+    }
+    .seventhcolumn{
+        line-height: 50px;
+        border: 1px solid grey; 
+        display:flex;
+    }
+    .seventh{
+        padding-left: 5em;
+        flex:1;
+    }
+   
+    
+        @media only screen and (max-width: 650px){
+
+        .searchDiv{
+         padding-right:30em !important;
+        }
+        .fa-search{
+        padding-right:30em !important;
+        }
+        .sidebar {
+         display:none;
+            }
+            
+            
+         main {
+        width:100% !important;
+                
+         }
+         .main-container{
+        display:grid !important;
+         }
+    #btn{
+        display:none;
+    }
+   
+    }
+    </style>
+</head>
+
+<body>
+        <header class="header">
+            <!-- Header -->
+            
+            <div id="page-content-wrapper">
+      
+                <nav class="navbar navbar-expand-lg navbar-light mr-auto ml-auto  border-bottom">
+              
+                  <div>
+                     
+                     <img src="img/search.png" width="20px" height="20px" id="inputIcon" />
+                     <input id="search" type="search"  placeholder="Search" />
+                  </div> 
+               
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                  
+                      <li id="nav-item active">
+                        <a class="nav-link" href="#"><img src="https://res.cloudinary.com/mirakul1/image/upload/v1570751693/e1tm9z6lqtnfefbftgga.svg" alt=""></a>
+                      </li>
+                      <hr id="dvd">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="https://res.cloudinary.com/mirakul1/image/upload/v1570750951/iau2jvhrp3ww4uppx3yf.svg" alt=""></a>
+                      </li>
+                      <hr id="dvd" />
+                      <li class="nav-item">
+                              <a class="nav-link" href="#"><img src="https://res.cloudinary.com/mirakul1/image/upload/v1570751264/z0yhs8mzqf991m3u0c3i.svg" alt=""></a>
+                      </li>
+                      <hr id="dvd" />
+                      <li class="nav-item">
+                          <a class="nav-link user-avatar" id="au" href="#">AU</a>
+                      </li>
+  
+                  
+                    </ul>
+                  </div>
+                </nav>
+            </div>
+
+        </header>
+
+
+    <!-- Side Bar -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <a href="homepage"><img
+                        src="https://res.cloudinary.com/undercover/image/upload/v1570695583/Lancers_xrom7n.png"></a>
+            </div>
+            <ul>
+                <li>
+                    <a href="documents.html"><img src="https://res.cloudinary.com/undercover/image/upload/v1570695571/home_dsbjg9.svg"
+                            alt="" srcset="" /> Dashboard</a>
+                </li>
+                <li>
+                    <a href="clientInformation.html"><img
+                            src="https://res.cloudinary.com/undercover/image/upload/v1570695570/customer_zs9l05.svg"
+                            alt="" srcset="" /> Client</a>
+                </li>
+                <li>
+                    <a href=""><img
+                            src="https://res.cloudinary.com/undercover/image/upload/v1570695514/lightbulb_tnpl08.svg"
+                            alt="" srcset="" /> Project<i class="fa fa-angle-down"></i></a></a>
+                </li>
+                <li>
+                    <a href=""><img
+                            src="https://res.cloudinary.com/undercover/image/upload/v1570695569/approve-invoice_tiiw8k.svg"
+                            alt="" srcset="" />
+                        Invoice</a>
+                </li>
+                <li>
+                    <a href=""><img
+                            src="https://res.cloudinary.com/undercover/image/upload/v1570695583/policy_hqxu0l.svg"
+                            alt="" srcset="" /> Contract</a>
+                </li>
+                <li>
+                    <a href=""><img
+                            src="https://res.cloudinary.com/undercover/image/upload/v1570695556/approval_yxgv04.svg"
+                            alt="" srcset="" /> Proposals</a>
+                </li>
+            </ul>
+        </div>
+
+
+        
+        <main>
+            <!-- Main body -->
+            <div class="main-container">
+            <h2 id="clt">CLIENT </h2>
+            <select name="All" id="crs">
+                    <option value="volvo">All</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                  </select>
+            <button id="btn"> + add to cart</button><br><br>
+
+            <div class = "firstcolumn">
+               
+                  <div class="first"><b id="dte">Date</b></div>
+                  <div class="first"><b id="cmp">Company</b></div>
+                  <div class="first"><b id="nme">Name</b></div>
+                  <div class="first"><b id="prj">Project</b></div>
+                  <div class="first"><b id="prs">Progress</b></div>
+                  <div class="first"></div>
+                  <div class="first"></div>
+                  
+                  
+                  </div></div><br>
+
+                  <div class="secondcolumn">
+                        
+                    <div class="second"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                        <span  id="dat" style="font-weight: normal">5/09/2019</span></div>
+                    <div class="second"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                    <div class="second"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                    <div class="second"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                    <div class="second"><b  id="act">Active</b></div>
+                    <div class="second"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                    <div class="second"></div>
+                    </div></div><br>
+
+                    <div class="thirdcolumn">
+                            
+                        <div class="third" > <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                            <span id="dat" style="font-weight: normal">5/09/2019</span></div>
+                        <div class="third"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                        <div class="third"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                        <div class="third"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                        <div class="third"><b id="act">Active</b></div>
+                        <div class="third"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                        <div class="third"></div>
+                        </div></div><br>
+
+                        <div class="fourthcolumn">
+                                
+                            <div class="fourth"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                                <span id="dat" style="font-weight: normal">5/09/2019</span></div>
+                            <div class="fourth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                            <div class="fourth"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                            <div class="fourth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                            <div class="fourth"><b  id="cmpt">Complete</b></div>
+                            <div class="fourth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                            <div class="fourth"></div>
+                            </div></div><br>
+
+                            <div class="fifthcolumn"><br>
+                                    
+                                <div class="fifth"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                                   <span> 5/09/2019</span></div>
+                                <div class="fifth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                                <div class="fifth"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                                <div class="fifth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                                <div class="fifth"><b  id="pend">Pending</b></div>
+                                <div class="fifth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                                <div class="fifth"></div>
+                                </div></div> <br>
+
+                                <div class="sixthcolumn">
+                                        
+                                    <div  class="sixth"><img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                                       <span> 5/09/2019</span></div>
+                                    <div  class="sixth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                                    <div  class="sixth"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                                    <div  class="sixth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                                    <div  class="sixth"><b  id="cmpt">Complete</b></div>
+                                    <div  class="sixth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                                    <div class="sixth"></div>
+                                    </div></div><br>
+
+                                      <div class="seventhcolumn">
+                                            
+                                        <div class="seventh"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                                            <span>5/09/2019</span></div>
+                                        <div class="seventh"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                                        <div class="seventh"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                                        <div class="seventh"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                                        <div class="seventh"><b   id="cmpt">Complete</b></div>
+                                        <div class="seventh"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                                        <div class="seventh"></div>
+                                        </div></div>  <br> 
+                                    </div>
+                                        </main>
+
+
+
+          
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script>
+    const menuBtn = document.getElementById("menuBtn")
+    const sidebar = document.getElementById("sidebar")
+    let showMenu = false
+    menuBtn.addEventListener("click", () => {
+        if (!showMenu) {
+            sidebar.classList.add("open-menu")
+            document.querySelector(".hamburger-btn").classList.add("cross-hamburger")
+            showMenu = true;
+        } else {
+            sidebar.classList.remove("open-menu")
+            document.querySelector(".hamburger-btn").classList.remove("cross-hamburger")
+            showMenu = false;
+        }
+    })
+    document.querySelector('.create-invoice').addEventListener('click', () => {
+            location.href = "invoice-view.html"
+        })
+</script>
+
+</html>
+
+
