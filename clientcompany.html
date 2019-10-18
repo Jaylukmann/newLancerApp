@@ -211,7 +211,7 @@
             margin: 0 auto;
         }
         .sidebar {
-            position: fixed;
+            position:fixed;
             top: 0;
             left: 0;
             background: #091429;
@@ -242,7 +242,6 @@
             padding-left: 8px;
         }
         .logo {
-            
             text-align: center;
             margin-bottom: 2rem;
         }
@@ -258,30 +257,13 @@
             margin-top: 40px;
             margin-bottom: 20px;
         }
-        .content h3 {
-            font-family: Ubuntu;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 22px;
-            line-height: 32px;
-            color: #262626;
-            margin-left: 40px;
-            margin-bottom: 20px;
-        }
-        .content p {
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 20px;
-            color: #091429;
-            margin-left: 40px;
-        }
+      
         .firstcolumn{
         margin-left:5em;
         display:flex;
     }
     .first{
-       
-        flex:1;
+       flex:1;
     }
     .secondcolumn{
         line-height: 50px;
@@ -290,7 +272,7 @@
     }
     .second{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
     .thirdcolumn{
         line-height: 50px;
@@ -299,7 +281,7 @@
     }
     .third{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
      .fourthcolumn{
         line-height: 50px;
@@ -308,7 +290,7 @@
     }
     .fourth{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
     .fifthcolumn{
         line-height: 50px;
@@ -317,7 +299,7 @@
     }
     .fifth{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
     .sixthcolumn{
         line-height: 50px;
@@ -326,7 +308,7 @@
     }
     .sixth{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
     .seventhcolumn{
         line-height: 50px;
@@ -335,35 +317,143 @@
     }
     .seventh{
         padding-left: 5em;
-        flex:1;
+        flex-direction: column;
     }
    
     
         @media only screen and (max-width: 650px){
+            *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+        html,
+        body {
+        font-family: 'Ubuntu', sans-serif;
+        overflow-y: visible;
+        overflow-x: visible;
+        position: relative;
+        padding:0;
+        margin:0;
+        display:block;
+    }
+    .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: 0;
+            left: 7rem;
+            width: calc(100% - 14rem);
+            z-index: 998;
+            backface-visibility: hidden;
+            margin-top: 1px;
+        }
 
         .searchDiv{
-         padding-right:30em !important;
+         text-align:center !important;
         }
         .fa-search{
-        padding-right:30em !important;
+            text-align:center!important;
         }
+        
         .sidebar {
-         display:none;
-            }
-            
-            
-         main {
-        width:100% !important;
-                
-         }
-         .main-container{
-        display:grid !important;
-         }
+         width:6em;   
+        }
+        .sidebar ul li {
+            padding: 0rem 0rem;
+            text-align: left;
+            list-style: none;
+            margin-left: 0rem;
+            margin-bottom: 2%;
+
+        }
+        .sidebar ul li a img {
+            height: 1.5rem;
+            padding-right: 0rem;
+        }
+        .sidebar ul li a i {
+            padding-left: 0px;
+        }
+           
+        .icon{
+            display: none;
+        }
+        main {
+           margin-top: 2rem;
+           margin-left: 6rem;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+        }
+         #crs{
+            margin-top: 2rem;
+           margin-left: 5rem;
+            height: 16px;
+            border: 1px solid grey;
+        }
+        #clt{
+            font-size: 17px;
+            margin-left: 25%;
+            font-weight: bold;
+        }
     #btn{
         display:none;
     }
-   
+    #prs{
+            padding-left:0;
+        }
+    .firstcolumn{
+        margin-top: 2rem;
+        margin-left: 5rem;
+        display:block;
     }
+    .first{
+        display:block;
+    }
+    .secondcolumn{
+        display:block;
+    }
+    .second{
+        display:block;
+    }
+    .thirdcolumn{
+        display:block;
+    }
+    .third{
+        display:block;
+    }
+     .fourthcolumn{
+        display:block;
+    }
+    .fourth{
+        display:block;
+    }
+    .fifthcolumn{
+        display:block;
+    }
+    .fifth{
+        display:block;
+    }
+    .sixthcolumn{
+        display:block;
+    }
+    .sixth{
+        display:block;
+    }
+    .seventhcolumn{
+        display:block;
+    }
+    .seventh{
+        display:block;
+    }
+   
+ }
+
+
     </style>
 </head>
 
@@ -413,37 +503,37 @@
     <!-- Side Bar -->
         <div class="sidebar" id="sidebar">
             <div class="logo">
-                <a href="homepage"><img
+                <a href="homepage"><img class="icon"
                         src="https://res.cloudinary.com/undercover/image/upload/v1570695583/Lancers_xrom7n.png"></a>
             </div>
-            <ul>
+            <ul class="sidebarlinks">
                 <li>
-                    <a href="documents.html"><img src="https://res.cloudinary.com/undercover/image/upload/v1570695571/home_dsbjg9.svg"
+                    <a href="documents.html"><img  class="icon"src="https://res.cloudinary.com/undercover/image/upload/v1570695571/home_dsbjg9.svg"
                             alt="" srcset="" /> Dashboard</a>
                 </li>
                 <li>
-                    <a href="clientInformation.html"><img
+                    <a href="clientInformation.html"><img class="icon"
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695570/customer_zs9l05.svg"
                             alt="" srcset="" /> Client</a>
                 </li>
                 <li>
-                    <a href=""><img
+                    <a href=""><img class="icon"
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695514/lightbulb_tnpl08.svg"
                             alt="" srcset="" /> Project<i class="fa fa-angle-down"></i></a></a>
                 </li>
                 <li>
-                    <a href=""><img
+                    <a href=""><img class="icon"
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695569/approve-invoice_tiiw8k.svg"
                             alt="" srcset="" />
                         Invoice</a>
                 </li>
                 <li>
-                    <a href=""><img
+                    <a href=""><img class="icon"
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695583/policy_hqxu0l.svg"
                             alt="" srcset="" /> Contract</a>
                 </li>
                 <li>
-                    <a href=""><img
+                    <a href=""><img class="icon"
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695556/approval_yxgv04.svg"
                             alt="" srcset="" /> Proposals</a>
                 </li>
@@ -515,41 +605,41 @@
 
                             <div class="fifthcolumn"><br>
                                     
-                                <div class="fifth"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
-                                   <span> 5/09/2019</span></div>
-                                <div class="fifth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
-                                <div class="fifth"><b id="fde" style="font-weight: normal">Foodie </b></div>
-                                <div class="fifth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
-                                <div class="fifth"><b  id="pend">Pending</b></div>
-                                <div class="fifth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
-                                <div class="fifth"></div>
-                                </div></div> <br>
+                           <div class="fifth"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                            <span> 5/09/2019</span></div>
+                            <div class="fifth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                            <div class="fifth"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                            <div class="fifth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                            <div class="fifth"><b  id="pend">Pending</b></div>
+                            <div class="fifth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                            <div class="fifth"></div>
+                            </div></div> <br>
 
-                                <div class="sixthcolumn">
+                            <div class="sixthcolumn">
                                         
-                                    <div  class="sixth"><img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
-                                       <span> 5/09/2019</span></div>
-                                    <div  class="sixth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
-                                    <div  class="sixth"><b id="fde" style="font-weight: normal">Foodie </b></div>
-                                    <div  class="sixth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
-                                    <div  class="sixth"><b  id="cmpt">Complete</b></div>
-                                    <div  class="sixth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
-                                    <div class="sixth"></div>
-                                    </div></div><br>
+                            <div  class="sixth"><img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                            <span> 5/09/2019</span></div>
+                            <div  class="sixth"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                            <div  class="sixth"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                            <div  class="sixth"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                            <div  class="sixth"><b  id="cmpt">Complete</b></div>
+                            <div  class="sixth"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                            <div class="sixth"></div>
+                            </div></div><br>
 
-                                      <div class="seventhcolumn">
+                            <div class="seventhcolumn">
                                             
-                                        <div class="seventh"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
-                                            <span>5/09/2019</span></div>
-                                        <div class="seventh"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
-                                        <div class="seventh"><b id="fde" style="font-weight: normal">Foodie </b></div>
-                                        <div class="seventh"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
-                                        <div class="seventh"><b   id="cmpt">Complete</b></div>
-                                        <div class="seventh"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
-                                        <div class="seventh"></div>
-                                        </div></div>  <br> 
-                                    </div>
-                                        </main>
+                            <div class="seventh"> <img src="img/Ellipse.png" id="com" style="margin-left: 12px; margin-right: -18px;">
+                             <span>5/09/2019</span></div>
+                            <div class="seventh"><img src="img/imgOne.png" id="com" width="30" height="30"></b></div>
+                             <div class="seventh"><b id="fde" style="font-weight: normal">Foodie </b></div>
+                             <div class="seventh"><b id="fdm" style="font-weight: normal"> Food delivery mode app</b></b></div>
+                             <div class="seventh"><b   id="cmpt">Complete</b></div>
+                             <div class="seventh"><img src="img/doticon.png" width="10px" height="15px" id="com" style="margin-left: 200px; margin-right: -18px;"></div>
+                             <div class="seventh"></div>
+                             </div></div>  <br> 
+                            </div>
+                            </main>
 
 
 
